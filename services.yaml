@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-svc
+  namespace: cloudshop
+spec:
+  type: ClusterIP
+  selector:
+    app: db
+  ports:
+  - port: 5432
+    targetPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-svc
+  namespace: cloudshop
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+  - port: 5000
+    targetPort: 5000
